@@ -1,0 +1,40 @@
+Nicholas Archambault
+CPSC 470
+PS5
+
+Question 1.1: 32
+
+Question 1.2: 81
+
+Question 1.3: Please see 'max_fitness_per_gen.png'
+
+Question 2: Please see 'max_trial.txt'
+
+Question 3.1: 
+Please see 'fitness_of_last_gen.png' to understand comparison visually. Individuals perform better on the Muir trail than on the Santa Fe trail. On Muir, they achieve a peak fitness of 81, while peak fitness achieved on Santa Fe is just 61.
+
+Question 3.2: 
+Yes, individuals that perform well on one trail tend to perform well on the other because of general principles and traits that give individuals a high performance floor. Examples of such traits include 
+	- if sensor is true, action triggered is "move forward"
+	- if sensor is false, action triggered is "rotate" clockwise or counterclockwise
+	- if sensor is false, do nothing and remain at the current state in order to avoid being caught in an infinite loop 
+	- etc.
+
+These types of built-in aspects allow for versatile, relatively stable performance across different trails where certain configurations might be different, but overall environment and the response it provokes remain similar.
+
+Question 4.1/4.2/4.3:
+
+- population size: 100
+- max generations: 200
+- crossover probability: 0.3
+- mutation probability: 0.2
+- number of elites to choose: 5
+- mutation probability on single digit: 0.5
+
+Selection incorporates elitism followed by rank selection. The fittest five individuals are chosen from the previous generation, though no additional consideration is given to the magnitude of their fitness. Parents are chosen according to ranks.
+
+Crossover implements the three-point technique: each parent is split into four parts and the offspring of the two individuals is composed of the first and third part of one parent combined with the second and fourth part of the other. With no crossover happening, one of the parents is randomly selected as the offspring.
+
+Mutation occurs with a probability of 0.5 on each digit. I chose (what I think is) a relatively high mutation probability in order to stimulate diversity and hopefully optimize fitness. Replacement governed by same elitism + rank selection strategy as above. 
+
+Please see 'geneticAlgorithm.py' to view the code. 
